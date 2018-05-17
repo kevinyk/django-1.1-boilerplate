@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h2>Register!</h2>
+    <form action="/register/">
+        <p>First Name: 
+            <input type="text" name="first_name">
+        </p>
+        <p>Last Name:
+            <input type="text" name="last_name">
+        </p>
+        <p>Email:
+            <input type="text" name="email">
+        </p>
+        <p>Password:
+            <input type="text" name="password">
+        </p>
+        <p>Password Confirmation:
+            <input type="text" name="password_confirmation">
+        </p>
+        <input type="submit">
+    </form>
+    <h2>Login!</h2>
+    <form action="/login/">
+        <p>Email:
+            <input type="text" name="email">
+        </p>
+        <p>Password:
+            <input type="text" name="password">
+        </p>
+        <input type="submit">
+    </form>
+</body>
+</html>
